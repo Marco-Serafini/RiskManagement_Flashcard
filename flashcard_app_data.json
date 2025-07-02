@@ -1,0 +1,179 @@
+{
+  "domains": [
+    {
+      "name": "Principi di Risk management",
+      "id": "principles",
+      "description": "Fondamenti e concetti base del risk management",
+      "topics": [
+        "Definizione di rischio",
+        "Obiettivi del risk management",
+        "Risk appetite e risk tolerance",
+        "Stakeholder management nel risk management",
+        "Governance dei rischi"
+      ]
+    },
+    {
+      "name": "Contesto e concetti fondamentali di Risk management",
+      "id": "context",
+      "description": "Il contesto in cui si applica il risk management e i concetti chiave",
+      "topics": [
+        "Analisi del contesto organizzativo",
+        "Fattori ambientali dell'impresa",
+        "Asset organizzativi",
+        "Categorie di rischio",
+        "Cultura del rischio"
+      ]
+    },
+    {
+      "name": "Risk strategy and planning",
+      "id": "strategy",
+      "description": "Pianificazione e strategia per la gestione dei rischi",
+      "topics": [
+        "Risk management plan",
+        "Strategie di risposta ai rischi",
+        "Pianificazione delle contingenze",
+        "Prioritizzazione dei rischi",
+        "Integrazione del risk management nel project management"
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "domain": "principles",
+      "front": "Qual è la definizione di rischio secondo il PMI?",
+      "back": "Un evento o condizione incerta che, se si verifica, ha un effetto positivo o negativo su uno o più obiettivi del progetto."
+    },
+    {
+      "domain": "principles",
+      "front": "Quali sono i due tipi principali di rischio?",
+      "back": "Rischi negativi (minacce) e rischi positivi (opportunità)."
+    },
+    {
+      "domain": "principles",
+      "front": "Cos'è il risk appetite?",
+      "back": "Il grado di incertezza che un'entità è disposta ad accettare in previsione di una ricompensa."
+    },
+    {
+      "domain": "principles",
+      "front": "Qual è la differenza tra risk appetite e risk tolerance?",
+      "back": "Risk appetite è il livello di rischio che un'organizzazione è disposta ad accettare, mentre risk tolerance è la deviazione quantificabile che l'organizzazione è disposta a tollerare rispetto ai suoi obiettivi."
+    },
+    {
+      "domain": "principles",
+      "front": "Quali sono i principali stakeholder nel risk management?",
+      "back": "Sponsor del progetto, project manager, team di progetto, esperti di dominio, clienti, utenti finali, fornitori, e autorità di regolamentazione."
+    },
+    {
+      "domain": "context",
+      "front": "Quali sono i fattori ambientali dell'impresa rilevanti per il risk management?",
+      "back": "Cultura organizzativa, standard e regolamenti di settore, infrastruttura esistente, risorse umane, condizioni di mercato, clima politico, tolleranza al rischio degli stakeholder."
+    },
+    {
+      "domain": "context",
+      "front": "Quali sono le principali categorie di rischio?",
+      "back": "Rischi tecnici, rischi esterni, rischi organizzativi, rischi di project management."
+    },
+    {
+      "domain": "context",
+      "front": "Cosa si intende per cultura del rischio?",
+      "back": "L'insieme di valori, credenze, conoscenze e comprensione del rischio condivisi da un gruppo di persone con un obiettivo comune, in particolare i membri di un'organizzazione."
+    },
+    {
+      "domain": "context",
+      "front": "Quali sono gli asset organizzativi rilevanti per il risk management?",
+      "back": "Processi e procedure, conoscenze basate sull'esperienza, lezioni apprese da progetti precedenti, database di rischi, template e checklist."
+    },
+    {
+      "domain": "context",
+      "front": "Perché è importante l'analisi del contesto organizzativo nel risk management?",
+      "back": "Perché aiuta a identificare i fattori interni ed esterni che possono influenzare il modo in cui i rischi vengono gestiti e fornisce una base per la definizione dei criteri di rischio."
+    },
+    {
+      "domain": "strategy",
+      "front": "Quali sono i componenti principali di un risk management plan?",
+      "back": "Metodologia, ruoli e responsabilità, budget, tempistiche, categorie di rischio, definizioni di probabilità e impatto, matrice di probabilità e impatto, formati di reporting."
+    },
+    {
+      "domain": "strategy",
+      "front": "Quali sono le quattro strategie principali per rispondere alle minacce?",
+      "back": "Evitare, trasferire, mitigare, accettare."
+    },
+    {
+      "domain": "strategy",
+      "front": "Quali sono le quattro strategie principali per rispondere alle opportunità?",
+      "back": "Sfruttare, condividere, migliorare, accettare."
+    },
+    {
+      "domain": "strategy",
+      "front": "Cos'è un piano di contingenza?",
+      "back": "Un piano che identifica strategie e azioni alternative da implementare se determinati eventi si verificano."
+    },
+    {
+      "domain": "strategy",
+      "front": "Come si integra il risk management nel project management?",
+      "back": "Attraverso l'inclusione di attività di risk management nel piano di project management, l'allocazione di risorse, la definizione di responsabilità, e l'integrazione nei processi di monitoraggio e controllo del progetto."
+    }
+  ],
+  "sm2_algorithm_demo": [
+    {
+      "step": 1,
+      "quality": 5,
+      "response_type": "Facile",
+      "old_state": {
+        "interval": 0,
+        "repetitions": 0,
+        "easiness": 2.5
+      },
+      "new_state": {
+        "interval": 1,
+        "repetitions": 1,
+        "easiness": 2.6
+      }
+    },
+    {
+      "step": 2,
+      "quality": 4,
+      "response_type": "Buono",
+      "old_state": {
+        "interval": 1,
+        "repetitions": 1,
+        "easiness": 2.6
+      },
+      "new_state": {
+        "interval": 6,
+        "repetitions": 2,
+        "easiness": 2.6
+      }
+    },
+    {
+      "step": 3,
+      "quality": 3,
+      "response_type": "Difficile",
+      "old_state": {
+        "interval": 6,
+        "repetitions": 2,
+        "easiness": 2.6
+      },
+      "new_state": {
+        "interval": 16,
+        "repetitions": 3,
+        "easiness": 2.46
+      }
+    },
+    {
+      "step": 4,
+      "quality": 2,
+      "response_type": "Errata",
+      "old_state": {
+        "interval": 16,
+        "repetitions": 3,
+        "easiness": 2.46
+      },
+      "new_state": {
+        "interval": 1,
+        "repetitions": 0,
+        "easiness": 2.46
+      }
+    }
+  ]
+}

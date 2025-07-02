@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMI-RMP Flashcard App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen active">
+        <div class="container">
+            <div class="login-card card">
+                <div class="card__body">
+                    <h1 class="text-center mb-24">PMI-RMP Flashcard App</h1>
+                    <p class="text-center mb-32">Seleziona il tuo profilo per iniziare</p>
+                    
+                    <div class="profile-selection">
+                        <button class="btn btn--primary btn--full-width mb-16" onclick="selectProfile('student')">
+                            Studente
+                        </button>
+                        <button class="btn btn--outline btn--full-width" onclick="selectProfile('admin')">
+                            Amministratore
+                        </button>
+                    </div>
+                    
+                    <div id="admin-code-input" class="hidden mt-16">
+                        <input type="password" id="admin-code" class="form-control" placeholder="Codice amministratore">
+                        <button class="btn btn--primary btn--full-width mt-8" onclick="verifyAdminCode()">
+                            Accedi
+                        </button>
+                    </div>
+                    
+                    <div class="footer-info">
+                        <p>App creata da <a href="https://marcoserafini.xyz" target="_blank">Marco Serafini</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Dashboard -->
+    <div id="student-dashboard" class="screen">
+        <div class="container">
+            <header class="dashboard-header">
+                <h1>Dashboard Studente</h1>
+                <button class="btn btn--outline btn--sm" onclick="logout()">Logout</button>
+            </header>
+            
+            <div class="stats-grid">
+                <div class="stat-card card">
+                    <div class="card__body">
+                        <h3>Carte Totali</h3>
+                        <div class="stat-value" id="total-cards">0</div>
+                    </div>
+                </div>
+                <div class="stat-card card">
+                    <div class="card__body">
+                        <h3>Studiate</h3>
+                        <div class="stat-value" id="studied-cards">0</div>
+                    </div>
+                </div>
+                <div class="stat-card card">
+                    <div class="card__body">
+                        <h3>In Apprendimento</h3>
+                        <div class="stat-value" id="learning-cards">0</div>
+                    </div>
+                </div>
+                <div class="stat-card card">
+                    <div class="card__body">
+                        <h3>In Ripasso</h3>
+                        <div class="stat-value" id="review-cards">0</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="progress-section">
+                <h2>Progresso per Area</h2>
+                <div id="progress-areas" class="progress-areas"></div>
+            </div>
+            
+            <div class="study-section">
+                <h2>Seleziona Aree di Studio</h2>
+                <div id="area-selection" class="area-selection"></div>
+                <button class="btn btn--primary btn--lg mt-16" onclick="startStudySession()">
+                    Inizia Sessione di Studio
+                </button>
+            </div>
+            
+            <div class="review-today">
+                <h2>Ripasso Oggi</h2>
+                <div id="today-cards" class="today-cards"></div>
+            </div>
+            
+            <div class="footer-info">
+                <p>App creata da <a href="https://marcoserafini.xyz" target="_blank">Marco Serafini</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" class="screen">
+        <div class="container">
+            <header class="dashboard-header">
+                <h1>RMP Course 25-01 - Dashboard Amministratore</h1>
+                <button class="btn btn--outline btn--sm" onclick="logout()">Logout</button>
+            </header>
+            
+            <div class="admin-overview">
+                <div class="card">
+                    <div class="card__body">
+                        <h2>Panoramica Generale</h2>
+                        <div class="admin-stats">
+                            <div class="admin-stat">
+                                <span class="label">Studenti Attivi:</span>
+                                <span class="value" id="active-students">1</span>
+                            </div>
+                            <div class="admin-stat">
+                                <span class="label">Carte Totali:</span>
+                                <span class="value" id="admin-total-cards">15</span>
+                            </div>
+                            <div class="admin-stat">
+                                <span class="label">Sessioni Completate:</span>
+                                <span class="value" id="total-sessions">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="areas-analytics">
+                <h2>Analytics per Area</h2>
+                <div id="admin-areas" class="admin-areas"></div>
+            </div>
+            
+            <div class="footer-info">
+                <p>App creata da <a href="https://marcoserafini.xyz" target="_blank">Marco Serafini</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Study Session Screen -->
+    <div id="study-screen" class="screen">
+        <div class="container">
+            <header class="study-header">
+                <button class="btn btn--outline btn--sm" onclick="endStudySession()">Fine Sessione</button>
+                <div class="study-progress">
+                    <span id="current-card">1</span> / <span id="total-study-cards">10</span>
+                </div>
+            </header>
+            
+            <div class="flashcard-container">
+                <div class="flashcard" id="flashcard">
+                    <div class="flashcard-front">
+                        <div class="card-content">
+                            <h3>Domanda</h3>
+                            <p id="question-text">Caricamento...</p>
+                        </div>
+                    </div>
+                    <div class="flashcard-back">
+                        <div class="card-content">
+                            <h3>Risposta</h3>
+                            <p id="answer-text">Caricamento...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flashcard-controls">
+                    <button class="btn btn--primary" id="flip-btn" onclick="flipCard()">
+                        Mostra Risposta
+                    </button>
+                </div>
+                
+                <div class="difficulty-buttons hidden" id="difficulty-buttons">
+                    <button class="btn btn--difficulty btn--again" onclick="rateCard(0)">
+                        Di nuovo (10 min)
+                    </button>
+                    <button class="btn btn--difficulty btn--hard" onclick="rateCard(2)">
+                        Difficile (1 giorno)
+                    </button>
+                    <button class="btn btn--difficulty btn--good" onclick="rateCard(3)">
+                        Buono (3 giorni)
+                    </button>
+                    <button class="btn btn--difficulty btn--easy" onclick="rateCard(5)">
+                        Facile (7 giorni)
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-info">
+                <p>App creata da <a href="https://marcoserafini.xyz" target="_blank">Marco Serafini</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Session Results Screen -->
+    <div id="results-screen" class="screen">
+        <div class="container">
+            <div class="results-card card">
+                <div class="card__body">
+                    <h1 class="text-center mb-24">Sessione Completata!</h1>
+                    
+                    <div class="results-stats">
+                        <div class="result-stat">
+                            <span class="label">Carte Studiate:</span>
+                            <span class="value" id="session-cards">0</span>
+                        </div>
+                        <div class="result-stat">
+                            <span class="label">Tempo Impiegato:</span>
+                            <span class="value" id="session-time">0 min</span>
+                        </div>
+                        <div class="result-stat">
+                            <span class="label">Prossimo Ripasso:</span>
+                            <span class="value" id="next-review">Domani</span>
+                        </div>
+                    </div>
+                    
+                    <div class="results-actions">
+                        <button class="btn btn--primary btn--full-width mb-8" onclick="showDashboard()">
+                            Torna alla Dashboard
+                        </button>
+                        <button class="btn btn--outline btn--full-width" onclick="startStudySession()">
+                            Nuova Sessione
+                        </button>
+                    </div>
+                    
+                    <div class="footer-info">
+                        <p>App creata da <a href="https://marcoserafini.xyz" target="_blank">Marco Serafini</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
